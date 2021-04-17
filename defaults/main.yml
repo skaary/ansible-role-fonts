@@ -1,0 +1,7 @@
+---
+fonts_user: ""
+fonts_group: ""
+fonts_directory: /home/{{ fonts_user }}/.local/share/fonts
+nerdfonts_directory: /home/{{ fonts_user }}/.local/share/fonts/NerdFonts
+nerdfonts_github_raw_patched_fonts: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts
+nerdfonts_single_fonts: []

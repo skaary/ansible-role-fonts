@@ -1,0 +1,27 @@
+---
+- name: ensure fonts directory exists
+  file:
+    owner: "{{ fonts_user }}"
+    group: "{{ fonts_group }}"
+    path: "{{ fonts_directory }}"
+    recurse: true
+    state: directory
+
+- name: ensure NerdFonts directory exists
+  file:
+    owner: "{{ fonts_user }}"
+    group: "{{ fonts_group }}"
+    path: "{{ nerdfonts_directory }}"
+    recurse: true
+    state: directory
+
+- name: ensure powerline fonts are installed
+  apt:
+    name: fonts-powerline
+    state: present
+
+- name: download individual nerd-fonts to fonts directory
+  include_tasks: "download_single_nerd-font.yml"
+  loop: "{{ nerdfonts_single_fonts }}"
+  loop_control:
+    loop_var: font

@@ -1,0 +1,11 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: fonts
+  description: NerdFonts and Powerline Fonts for linux.
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all

@@ -1,0 +1,14 @@
+---
+- name: Verify
+  hosts: all
+
+  tasks:
+    - name: Collect package facts.
+      package_facts:
+        manager: "auto"
+    # - name: Verify zathura is installed.
+    #   assert:
+    #     that:
+    #       - "'zathura' in ansible_facts.packages"
+    #     success_msg: "Zathura is installed."
+    #     fail_msg: "Zathura is not installed."

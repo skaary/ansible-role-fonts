@@ -1,0 +1,22 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    fonts_user: molecule
+    fonts_group: molecule
+    nerdfonts_single_fonts:
+      - "UbuntuMono/Regular/complete/Ubuntu Mono Nerd Font Complete.ttf"
+      - "AurulentSansMono/complete/AurulentSansMono-Regular Nerd Font Complete.otf"
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=true cache_valid_time=600
+
+    - name: create test user
+      user:
+        name: molecule
+
+  tasks:
+    - name: "Include ansible-role-fonts"
+      include_role:
+        name: "ansible-role-fonts"
