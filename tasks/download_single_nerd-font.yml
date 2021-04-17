@@ -8,6 +8,7 @@
     owner: "{{ fonts_user }}"
     group: "{{ fonts_group }}"
     path: "{{ nerdfonts_directory }}/{{ nerdfonts_font_family_dir }}"
+    recurse: true
     state: directory
 
 - name: download {{ font|basename }}
