@@ -6,7 +6,7 @@
 - name: create directory for {{ nerdfonts_font_family_dir }} fonts
   file:
     owner: "{{ fonts_user }}"
-    group: "{{ fonts_group|default(omit) }}"
+    group: "{{ fonts_group }}"
     path: "{{ nerdfonts_directory }}/{{ nerdfonts_font_family_dir }}"
     state: directory
 
