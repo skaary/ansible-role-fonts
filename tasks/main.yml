@@ -1,4 +1,10 @@
 ---
+- name: install fonts from the apt repository
+  apt:
+    name: "{{ fonts_repository }}"
+    state: present
+  become: true
+
 - name: ensure fonts directory exists
   file:
     owner: "{{ fonts_user }}"
@@ -15,13 +21,20 @@
     recurse: true
     state: directory
 
-- name: ensure powerline fonts are installed
-  apt:
-    name: fonts-powerline
-    state: present
-
 - name: download individual nerd-fonts to fonts directory
   include_tasks: "download_single_nerd-font.yml"
   loop: "{{ nerdfonts_single_fonts }}"
   loop_control:
     loop_var: font
+# - name: ensure Droid Sans Mono directory exists
+#   file:
+#     owner: "{{ fonts_user }}"
+#     group: "{{ fonts_group }}"
+#     path: "{{ droid_sans_mono_font_directory }}"
+#     recurse: true
+#     state: directory
+# - name: download individual droid-sans-mono fonts to fonts directory
+#   include_tasks: "download_single_nerd-font.yml"
+#   loop: "{{ droid_sans_mono_fonts }}"
+#   loop_control:
+#     loop_var: font

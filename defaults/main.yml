@@ -1,7 +1,16 @@
 ---
-fonts_user: ""
-fonts_group: ""
+fonts_user: "{{ ansible_user_id }}"
+fonts_group: "{{ fonts_user }}"
 fonts_directory: /home/{{ fonts_user }}/.local/share/fonts
-nerdfonts_directory: /home/{{ fonts_user }}/.local/share/fonts/NerdFonts
+
+fonts_repository: []
+
+nerdfonts_directory: "{{ fonts_directory }}/NerdFonts"
 nerdfonts_github_raw_patched_fonts: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts
 nerdfonts_single_fonts: []
+# droid_sans_mono_font_directory: "{{ fonts_directory }}/droid-sans-mono"
+# droid_sans_mono_fonts: []
+#   - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono%20Windows%20Compatible.otf
+#   - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.otf
+#   - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete%20Windows%20Compatible.otf
+#   - https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
