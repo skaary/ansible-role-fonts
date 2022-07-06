@@ -1,0 +1,14 @@
+---
+- name: Install Fonts
+  hosts: all
+  vars:
+    # fonts_user: vagrant
+    # fonts_group: vagrant
+    fonts_repository:
+      - fonts-powerline
+      - fonts-liberation
+    nerdfonts_single_fonts:
+      - "UbuntuMono/Regular/complete/Ubuntu Mono Nerd Font Complete.ttf"
+      - "AurulentSansMono/complete/AurulentSansMono-Regular Nerd Font Complete.otf"
+  roles:
+    - fonts
